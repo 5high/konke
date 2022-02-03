@@ -10,7 +10,7 @@ import time
 
 import voluptuous as vol
 
-from homeassistant.components.switch import SwitchDevice, PLATFORM_SCHEMA
+from homeassistant.components.switch import PLATFORM_SCHEMA
 from homeassistant.const import CONF_NAME, CONF_HOST
 import homeassistant.helpers.config_validation as cv
 
