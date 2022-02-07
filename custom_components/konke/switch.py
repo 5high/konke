@@ -10,7 +10,7 @@ import time
 
 import voluptuous as vol
 
-from homeassistant.components.switch import PLATFORM_SCHEMA
+from homeassistant.components.switch import PLATFORM_SCHEMA, SwitchEntity
 from homeassistant.const import CONF_NAME, CONF_HOST
 import homeassistant.helpers.config_validation as cv
 
@@ -71,7 +71,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     async_add_entities(entities)
 
 
-class KonkeOutlet(SwitchDevice):
+class KonkeOutlet(SwitchEntity):
 
     def __init__(self, name, device, model=None):
         self._name = name
@@ -133,7 +133,7 @@ class KonkeOutlet(SwitchDevice):
                 _LOGGER.warning('Device is offline %s', self.entity_id)
 
 
-class KonkeUsbSwitch(SwitchDevice):
+class KonkeUsbSwitch(SwitchEntity):
     def __init__(self, name, device):
         self._name = name
         self._device = device
@@ -245,7 +245,7 @@ class KonkePowerStrip(object):
                     _LOGGER.warning('Device is offline %s', self.unique_id)
 
 
-class KonkePowerStripOutlet(SwitchDevice):
+class KonkePowerStripOutlet(SwitchEntity):
     """Outlet in Konke Power Strip."""
 
     def __init__(self, powerstrip: KonkePowerStrip, name: str, index: int):
@@ -295,7 +295,7 @@ class KonkePowerStripOutlet(SwitchDevice):
         await self._powerstrip.async_update()
 
 
-class KonkePowerStripUSB(SwitchDevice):
+class KonkePowerStripUSB(SwitchEntity):
     """Outlet in Konke Power Strip."""
 
     def __init__(self, powerstrip: KonkePowerStrip, name: str, index: int):
