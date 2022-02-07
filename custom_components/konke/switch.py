@@ -49,6 +49,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
     try:
         device = get_device(host, model)
+        await device.update()
     except DeviceNotSupport:
         _LOGGER.error(
             'Unsupported device found! Please create an issue at '
