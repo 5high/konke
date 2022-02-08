@@ -38,13 +38,13 @@ switch:
 ```
 
 CONFIGURATION VARIABLES:
-
+```
 - name
   (string)(Optional)The display name of the device
 
 - host
   (string)(Required)The host/IP address of the device.
-  
+```  
 遥控使用方法：
 控客的遥控器是不支持直接输入遥控编码的，只能通过学习添加遥控器。
 
@@ -70,7 +70,7 @@ CONFIGURATION VARIABLES:
 使用示例：
 
 configuration.yaml中添加：
-
+```
 remote:
   - platform: konke
     name: k_ir_remote
@@ -95,3 +95,4 @@ data:
   command: ir_1001
   num_repeats: 1
   delay_secs: 0.4
+```
