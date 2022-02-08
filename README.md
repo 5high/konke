@@ -50,15 +50,18 @@ CONFIGURATION VARIABLES:
 
 - 添加遥控：
 进入service界面，选择remote.koneke_ir_learn_command或remote.koneke_rf_learn_command。
+```
 {
   "entity_id": 【设备的entity_id】,
   "slot": 【命令id，取值范围1000-99999】,
   "timeout": 【超时时长，默认10s】
 }
+```
 注意solt参数是int格式，周围不能带引号，timeout参数不带单位，否则命令会不生效。
 学习后会在主界面显示通知信息，提示学习的成功或者失败。
 
 - 使用遥控：
+```
 调用remote.send_command这个service，data:
 {
   "entity_id": 【设备的entity_id】,
@@ -66,7 +69,7 @@ CONFIGURATION VARIABLES:
   "num_repeats": 【发送次数，默认1】,
   "delay_secs": 【两次发射间的延时，默认0.4s】
 }
-
+```
 使用示例：
 
 configuration.yaml中添加：
