@@ -11,7 +11,7 @@ import voluptuous as vol
 
 from homeassistant.components.remote import (
     PLATFORM_SCHEMA, DOMAIN, ATTR_NUM_REPEATS, ATTR_DELAY_SECS,
-    DEFAULT_DELAY_SECS, RemoteDevice)
+    DEFAULT_DELAY_SECS, RemoteEntity)
 from homeassistant.const import (
     CONF_NAME, CONF_HOST, CONF_TIMEOUT, CONF_TYPE,
     ATTR_ENTITY_ID, CONF_COMMAND)
@@ -110,7 +110,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         hass.services.async_register(DOMAIN, SERVICE_RF_LEARN, async_service_handler, schema=LEARN_COMMAND_SCHEMA)
 
 
-class KonkeRemote(RemoteDevice):
+class KonkeRemote(RemoteEntity):
     """Representation of a Xiaomi Miio Remote device."""
 
     def __init__(self, device, name, remote_type, hidden):
