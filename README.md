@@ -38,19 +38,19 @@ switch:
 ```
 
 CONFIGURATION VARIABLES:
-```
+
 - name
   (string)(Optional)The display name of the device
 
 - host
   (string)(Required)The host/IP address of the device.
-```  
+  
 遥控使用方法：
 控客的遥控器是不支持直接输入遥控编码的，只能通过学习添加遥控器。
 
 - 添加遥控：
 进入service界面，选择remote.koneke_ir_learn_command或remote.koneke_rf_learn_command。
-```
+```yaml
 {
   "entity_id": 【设备的entity_id】,
   "slot": 【命令id，取值范围1000-99999】,
@@ -61,8 +61,8 @@ CONFIGURATION VARIABLES:
 学习后会在主界面显示通知信息，提示学习的成功或者失败。
 
 - 使用遥控：
-```
 调用remote.send_command这个service，data:
+```yaml
 {
   "entity_id": 【设备的entity_id】,
   "command": 【遥控类型ir或rf】_【命令id，取值范围1000-99999】,
@@ -73,7 +73,7 @@ CONFIGURATION VARIABLES:
 使用示例：
 
 configuration.yaml中添加：
-```
+```yaml
 remote:
   - platform: konke
     name: k_ir_remote
@@ -81,17 +81,17 @@ remote:
     host: 192.168.2.162
     hidden: false
     type: ir
-
+```
 学习遥控：
-
+```yaml
 service: remote.koneke_ir_learn
 data:
   entity_id: remote.k_ir_remote
   slot: 1001
   timeout: 10
-
+```
 使用遥控：
-
+```yaml
 service: remote.send_command
 data:
   entity_id: remote.k_ir_remote
