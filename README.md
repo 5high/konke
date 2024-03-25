@@ -31,9 +31,11 @@ Add the following to your configuration.yaml file:
 switch:
   - platform: konke
     name: switch_1
+    mode: minik
     host: 192.168.0.101
   - platform: konke
     name: switch_2
+    mode: minik
     host: 192.168.0.102
 ```
 
